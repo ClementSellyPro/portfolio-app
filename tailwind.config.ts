@@ -12,6 +12,12 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        jost: ["Jost", "sans-serif"]
+      },
+      rotate: {
+        "135": "135deg",
+      }
     },
   },
   plugins: [],
