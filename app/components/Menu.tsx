@@ -6,9 +6,9 @@ import { motion } from "framer-motion";
 
 const menuItems = [
     { name: 'HOME', href: '/' },
-    { name: 'WORK', href: '/work' },
-    { name: 'ABOUT', href: 'about' },
-    { name: 'CONTACT', href: '/contact'}
+    { name: 'WORK', href: '#work' },
+    { name: 'ABOUT', href: '#about' },
+    { name: 'CONTACT', href: '#contact'}
 ]
 
 function Menu({setIsMenuOpen}:{isMenuOpen:boolean,setIsMenuOpen:React.Dispatch<SetStateAction<boolean>>}) {
@@ -23,7 +23,7 @@ function Menu({setIsMenuOpen}:{isMenuOpen:boolean,setIsMenuOpen:React.Dispatch<S
             // [.52,0,.24,1]
     return (
         <motion.div 
-            className='fixed inset-0 h-screen w-full flex justify-center items-center bg-slate-300'
+            className='fixed inset-0 h-screen w-full flex justify-center items-center bg-slate-300 z-10'
             initial={{ y: '-100%' }}
             animate={{ y: 0 }}
             exit={{ y: '-100% '}}
@@ -33,22 +33,23 @@ function Menu({setIsMenuOpen}:{isMenuOpen:boolean,setIsMenuOpen:React.Dispatch<S
                         menuItems.map((item) => (
                             <motion.li
                                 key={item.name}
-                                initial={{ opacity: 0, y: -20 }}
-                                animate={{ opacity: 0.6, y: 0 }}
+                                initial={{ y: -20 }}
+                                animate={{ y: 0 }}
                                 exit={{ opacity: 0, y: 20 }}
-                                transition={{ duration: 0.3, delay: 0.1 }}>
-                                    <Link href={item.href} onClick={hideMenu}>
-                                        {item.name}
-                                    </Link>
+                                transition={{ duration: 0.3, delay: 0.1 }}
+                                className='relative overflow-hidden'>
+                                    <motion.div
+                                        className='relative'
+                                        initial={{ y: '35%', opacity: 0.6 }}
+                                        whileHover={{ y: 0, opacity: 1 }}
+                                        transition={{ duration: 0.2 }}>
+                                        <Link href={item.href} onClick={hideMenu}>
+                                            {item.name}
+                                        </Link>
+                                    </motion.div>
                             </motion.li>
                         ))
                     }
-
-
-                    {/* <li><Link href="/" onClick={hideMenu} className='cursor-pointer opacity-60 hover:opacity-100'>HOME</Link></li>
-                    <li><Link href="/#work" onClick={hideMenu} className='cursor-pointer opacity-60 hover:opacity-100'>WORK</Link></li>
-                    <li><Link href="/#about" onClick={hideMenu} className='cursor-pointer opacity-60 hover:opacity-100'>ABOUT</Link></li>
-                    <li><Link href="/#contact" onClick={hideMenu} className='cursor-pointer opacity-60 hover:opacity-100'>CONTACT</Link></li> */}
                 </ul>
         </motion.div>
     )

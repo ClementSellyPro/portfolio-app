@@ -13,7 +13,7 @@ function MenuButton({setIsMenuOpen, isMenuOpen}: propsType) {
     }
 
     return (
-        <div className='flex flex-col gap-3 z-10 w-fit h-fit hover:cursor-pointer' onClick={toggleMenu}>
+        <div className='flex flex-col justify-center gap-3 z-20 w-fit h-8 hover:cursor-pointer' onClick={toggleMenu}>
             <motion.span 
                 className='w-10 h-0.5 bg-black'
                 animate={{rotate: isMenuOpen ? 45 : 0,
