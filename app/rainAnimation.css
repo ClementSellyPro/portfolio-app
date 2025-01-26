@@ -1,0 +1,31 @@
+i{
+    position: absolute;
+    height: 200px;
+    background: linear-gradient(transparent, #000);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    animation: rainAnimation 5s linear infinite;
+}
+
+i:nth-child(3n+1){
+    background: linear-gradient(transparent, #c1121f)
+}
+
+i:nth-child(3n+2){
+    background: linear-gradient(transparent, #669bbc)
+}
+
+i:nth-child(3n+3){
+    background: linear-gradient(transparent, #fdf0d5)
+}
+
+@keyframes rainAnimation{
+    0%
+    {
+        transform: translateY(-200px);
+    }
+    100%
+    {
+        transform: translate(cal(100vh + 200px));
+    }
+}
