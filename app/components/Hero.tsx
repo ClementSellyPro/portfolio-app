@@ -1,38 +1,38 @@
 "use client"
 
 import Image from 'next/image'
-import React, { useEffect } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
 import '../rainAnimation.css'
 
 function Hero() {
 
-      useEffect(() => {
-        function rain() {
-            const amount = 15;
-            const bg = document.querySelector('#hero-bg');
-            let i = 0;
+    //   useEffect(() => {
+    //     function rain() {
+    //         const amount = 15;
+    //         const bg = document.querySelector('#hero-bg');
+    //         let i = 0;
         
-            while(i < amount){
-                const drop = document.createElement('i');
+    //         while(i < amount){
+    //             const drop = document.createElement('i');
         
-                const size = Math.random() * 5;
-                const posX = Math.floor(Math.random() * window.innerWidth);
-                const delay = Math.random() * -20;
-                const duration = Math.random() * 5;
+    //             const size = Math.random() * 5;
+    //             const posX = Math.floor(Math.random() * window.innerWidth);
+    //             const delay = Math.random() * -20;
+    //             const duration = Math.random() * 5;
         
-                drop.style.width = 0.2 + size+'px';
-                drop.style.left = posX + 'px';
-                drop.style.animationDelay = delay + 's';
-                drop.style.animationDuration = 1 + duration + 's';
-                bg?.appendChild(drop);
+    //             drop.style.width = 0.2 + size+'px';
+    //             drop.style.left = posX + 'px';
+    //             drop.style.animationDelay = delay + 's';
+    //             drop.style.animationDuration = 1 + duration + 's';
+    //             bg?.appendChild(drop);
         
-                i++;
-            }
-        }
+    //             i++;
+    //         }
+    //     }
         
-        rain();
-    }, [])
+    //     // rain();
+    // }, [])
 
   return (
     <div id='hero-bg' className='flex flex-col items-center justify-center gap-40 h-screen overflow-hidden'>
