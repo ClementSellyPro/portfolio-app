@@ -1,6 +1,5 @@
 "use client"
 
-
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import {motion} from 'framer-motion'
@@ -22,7 +21,10 @@ function ImageProject({project, selectedProject, setSelectedProject}:ImageProjec
         }else{
             setOpacity('50');
         }
-    }, [selectedProject, project]);
+        console.log(selectedProject);
+        console.log(opacity);
+        
+    }, [selectedProject]);
 
     function onHoverFn(){
         setSelectedProject(project);
@@ -30,8 +32,8 @@ function ImageProject({project, selectedProject, setSelectedProject}:ImageProjec
     }
 
     return (
-        <motion.div className='relative h-1/3 hover:cursor-pointer rounded-lg border'
-        initial={false} animate={{x: isHovered ? 30 : 0}} transition={{ duration: 0.3 }}
+        <motion.div className='relative h-1/4 hover:cursor-pointer rounded-lg border'
+        initial={false} animate={{x: isHovered ? 15 : 0}} transition={{ duration: 0.3 }}
         >
             <Image className={`opacity-${opacity} rounded-lg`} src={`/projects/${project}.png`} alt='Project' fill sizes="100vw" style={{ objectFit: "cover" }}
             onMouseEnter={() => onHoverFn()}
